@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const db = require('./db');
 
 // Modulo de Lógica de Autenticación
 const { verificarCredenciales } = require('./auth');
@@ -87,3 +88,5 @@ app.get('/formulario', (req, res) => {
 app.listen(PORT, () => {
     console.log(` Servidor corriendo en http://localhost:${PORT}`);
 });
+
+

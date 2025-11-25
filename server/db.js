@@ -17,3 +17,22 @@ const db = new sqlite3.Database(DB_PATH, sqlite3.OPEN_READWRITE | sqlite3.OPEN_C
 
 // Exporta la conexión para poder usarla en index.js o en otros archivos de lógica.
 module.exports = db;
+
+db.all("SELECT * FROM Grupo", (err, rows) => {
+    if (err) throw err;
+    console.log("Grupos:", rows);
+});
+
+db.all("SELECT * FROM Alumno", (err, rows) => {
+    if (err) throw err;
+    console.log("Alumnos:", rows);
+});
+
+db.all("SELECT * FROM Grupo", (err, rows) => {
+    if (err) {
+        console.log("Error en Grupo:", err.message);
+    } else {
+        console.log("Datos en Grupo:", rows);
+        console.log("Número de registros:", rows.length);
+    }
+});

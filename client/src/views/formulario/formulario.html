@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="styleF.css"> </head>
+<body>
+
+<header class="header-unisala">
+    <div class="logo">Unisala</div>
+    <nav class="nav-menu">
+        <a href="#" class="nav-item">
+            <img src="C:\Users\anaja\Desktop\Parcial 2\img\ic1.png" alt="Home icon">Home</a>
+        <a href="#" class="nav-item">
+            <img src="C:\Users\anaja\Desktop\Parcial 2\img\ic3.png" alt="About Us icon"> About Us</a>
+        <a href="#" class="nav-item" style="border: 2px;">
+            <img src="C:\Users\anaja\Desktop\Parcial 2\img\ic2.png" alt="Perfil icon"></a>
+    </nav>
+</header>
+
+    <div class="contenedor-formulario">
+        <h2 class="titulo-principal">RESERVA TU SALA</h2>
+
+        <form class="DatosUsuario">
+            <h3>Datos del usuario</h3>
+                <input type="text" id="id-usuario" maxlength="9" placeholder="ID de usuario" style="margin-bottom: 15px;">
+                <input type="text" id="nombre-completo" maxlength="50" placeholder="Nombre completo" style="margin-bottom: 15px;">
+                <input type="text" id="grupo" maxlength="4" placeholder="Grupo" style="margin-bottom: 15px;">
+        </form>
+        
+        <hr class="separador-sutil">
+
+        <form class="DatosReserva">
+            <h3>Detalles de la reserva</h3>
+                <select id="lugar">
+                    <option value="" disabled selected>Seleccione un lugar</option>
+                    <option value="sala1">Sala de Cómputo 1</option>
+                    <option value="sala2">Sala de Cómputo 2</option>
+                    <option value="sala3">Laboratorio de Electrónica-IA</option>
+                    <option value="sala4">Laboratorio de Cómputo</option>
+                </select>
+
+                <div class="fecha" style="display:flex; height: 30px; padding: 0%; margin-top: 15px;">
+                <label>Seleccione una fecha:</label>
+                <div >
+                    <input type="date" style="margin-left: 5px;">
+                </div>
+              </div>
+              
+
+            <div class="hora" style="display: flex; margin-top: 15px;">
+                <form class="hora">
+                    <label>Horario: De </label>
+                    <input type="time" id="hora-inicio" style="margin-left: 5px; margin-right: 5px;">
+                    <label>a</label>
+                    <input type="time" id="hora-fin" style="margin-left: 5px;">
+                </form>
+
+            </div>
+                <div class="Proposito" style="margin-top: 15px;">
+                     <label for="proposito">Motivo:</label>
+                    <textarea id="proposito" placeholder="(máximo 200 caracteres)..." maxlength="200"></textarea>
+                </div>
+        </form>
+
+        <div class="acciones-finales">
+            <label class="checkbox-container">
+                <input type="checkbox" checked>
+                Acepto los Términos y Condiciones
+                <br>
+                <a href="#" class="enlace-terminos">Leer Términos y Condiciones</a>
+            </label>
+            <button class="boton-reservar">Reservar</button>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

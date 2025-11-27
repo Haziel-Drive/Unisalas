@@ -1,13 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const db = require('./db');
+//const db = require('./db');
+//import express from 'express';
+//import cors from 'cors';
+//import path from 'path';
+
 
 // Modulo de Lógica de Autenticación
-const { verificarCredenciales } = require('./auth');
+//import verificarCredenciales from './auth.js';
 
 const app = express();
-
 
 const PORT = process.env.PORT || 3000;
 
@@ -88,5 +91,4 @@ app.get('/formulario', (req, res) => {
 app.listen(PORT, () => {
     console.log(` Servidor corriendo en http://localhost:${PORT}`);
 });
-
 

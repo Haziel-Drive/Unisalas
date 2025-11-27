@@ -1,7 +1,5 @@
-// auth.js (Versión de Conexión Real a SQLite)
-
-const sqlite3 = require('sqlite3').verbose();
-const db = require('./db'); // Asegúrate de que tu conexión a la DB esté aquí
+/* auth.js - Versión CORREGIDA
+import db from './db.js';
 
 function verificarCredenciales(usuario, contrasena) {
     return new Promise((resolve, reject) => {
@@ -24,6 +22,6 @@ function verificarCredenciales(usuario, contrasena) {
     });
 }
 
-module.exports = {
-    verificarCredenciales
-};
+export default verificarCredenciales;
+
+*/

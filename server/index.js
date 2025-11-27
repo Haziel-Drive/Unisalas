@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
     // Busca el archivo en la carpeta 'views'
-    res.sendFile(path.join(__dirname, 'views', 'login.html'));
+    res.sendFile(path.join(__dirname, 'views', 'login', 'login.html'));
 });
 
 // index.js (Continuación)
@@ -75,7 +75,7 @@ app.post('/login', async (req, res) => {
 
 // 2. VISTA: INICIO
 app.get('/inicio', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'inicio.html'));
+    res.sendFile(path.join(__dirname, 'views', 'Principal', 'inicio.html'));
 });
 
 // 3. VISTA: OPCIONES
@@ -85,7 +85,7 @@ app.get('/opciones', (req, res) => {
 
 // 4. VISTA: FORMULARIO
 app.get('/formulario', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'formulario.html'));
+    res.sendFile(path.join(__dirname, 'views', 'formulario', 'formulario.html'));
 });
 
 app.listen(PORT, () => {

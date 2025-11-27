@@ -1,4 +1,4 @@
-/* auth.js - Versión CORREGIDA
+ // auth.js
 import db from './db.js';
 
 function verificarCredenciales(usuario, contrasena) {
@@ -23,5 +23,3 @@ function verificarCredenciales(usuario, contrasena) {
 }
 
 export default verificarCredenciales;
-
-*/

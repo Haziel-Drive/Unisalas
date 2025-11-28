@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // Middleware para leer datos de formulario 
 
 // LÍNEA CORREGIDA: Apunta a client/src como la raíz estática
-app.use(express.static(path.join(__dirname, '..', 'client', 'src', 'views'))); 
+app.use(express.static(path.join(__dirname, '..', 'client', 'src'))); 
 
 // --- RUTAS DE VISTAS (HTML) ---
 
@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
     // RUTA HTML CORREGIDA
-    res.sendFile(path.join(__dirname, 'views', 'client', 'src', 'views', 'login', 'login.html'));
+    res.sendFile(path.join(__dirname, '..', 'client', 'src', 'views', 'login', 'login.html'));
 });
 
 // ... (Ruta POST /login) ...

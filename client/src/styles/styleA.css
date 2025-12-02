@@ -81,6 +81,13 @@ header h1 {
   color: #555;
 }
 
+/* ESTILO DEL ENLACE QUE ENVUELVE AL BOTÓN */
+.hero-card .button-link {
+    text-decoration: none; /* Eliminar el subrayado del enlace */
+    display: inline-block; /* Permitir que el enlace se ajuste al botón */
+    margin-top: 20px; /* Mantener la separación superior */
+}
+
 .hero-card button {
   margin-top: 20px;
   padding: 12px 35px;
@@ -94,6 +101,7 @@ header h1 {
 .hero-card button:hover {
   background: #009fbb;
 }
+
 
 /* ---------------- ANIMACIONES ---------------- */
 

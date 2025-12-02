@@ -1,0 +1,177 @@
+/* --- GENERAL --- */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: #FFFFFF;
+
+    color: #1b2c4b;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+  background: linear-gradient(90deg, #0033cc, #00eaff);
+
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.navbar nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.user-icon {
+    font-size: 20px;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.main-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.main-section h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.subtitle {
+    margin-top: -10px;
+    font-size: 20px;
+    color: #4d6786;
+}
+
+/* =========================================================
+   --- TARJETAS CON DISEÑO MÁS DIDÁCTICO Y MODERNO ---
+   ========================================================= */
+
+/* Contenedor de tarjetas (mantengo tu estilo pero más espacioso) */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+/* --- Tarjeta principal --- */
+.card {
+    width: 350px;
+    padding: 40px;
+    border-radius: 22px;
+
+    /* ✨ Borde degradado */
+    border: 4px solid transparent;
+    background: 
+        linear-gradient(white, white) padding-box,  
+        linear-gradient(135deg, #287bfd, #00eaff) border-box;
+
+    /* Sombra suave */
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+
+    transition: 0.35s ease;
+    cursor: pointer;
+}
+
+/* Para eliminar el estilo por defecto del enlace que envuelve la tarjeta */
+.card-link {
+    text-decoration: none; /* Quita el subrayado */
+    color: inherit;      /* Hereda el color de texto del padre */
+    display: block;      /* Asegura que el enlace ocupe todo el espacio para ser clicable */
+}
+
+/* --- Efecto hover didáctico --- */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+
+    /* Aumenta el brillo del degradado al pasar el cursor */
+    background:
+        linear-gradient(#f8fbff, #f8fbff) padding-box,
+        linear-gradient(135deg, #005ff9, #00f7ff) border-box;
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.45);
+}
+
+/* Opcional: Para darle un efecto visual al pasar el mouse por la tarjeta */
+.card-link:hover .card {
+    /* Ejemplo de efecto: aumentar ligeramente el tamaño o cambiar la sombra */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    cursor: pointer; /* Indica que es un elemento clicable */
+}
+
+/* --- Círculo con icono --- */
+.icon-circle {
+    width: 150px;
+    height: 150px;
+
+    /* Fondo suave celeste */
+    background: linear-gradient(135deg, #dcebff, #e8f4ff);
+
+    border-radius: 50%;
+    margin: 0 auto 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+
+    /* Sombra para hacerlo más didáctico */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s ease;
+}
+
+/* Icono dentro del círculo */
+.icon-circle img {
+    width: 85px;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.15));
+}
+
+/* --- Título de la tarjeta --- */
+.card h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+    color: #1b2c4b;
+}
+
+/* --- Descripción de la tarjeta --- */
+.card p {
+    font-size: 18px;
+    color: #4a5f80;
+}
+
+/* =========================================================
+   --- EFECTO DIDÁCTICO: MOVIMIENTO SUAVE CON EL MOUSE ---
+   ========================================================= */
+
+/* Permite que cada tarjeta reaccione a la dirección del mouse */
+.card {
+    perspective: 800px;
+}
+
+.card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Hace que el círculo del icono también se mueva ligeramente */
+.card:hover .icon-circle {
+    transform: scale(1.08) rotateZ(2deg);
+}
+
+/* Animación suave cuando sale el mouse */
+.card, .icon-circle {
+    transition: transform 0.35s ease-out;
+}
+

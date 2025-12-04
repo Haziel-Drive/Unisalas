@@ -1,51 +1,42 @@
+// server/index.js
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-//const db = require('./db');
-//import verificarCredenciales from './auth.js';
+const conectarDB = require('./db'); 
+const reservasRoutes = require('./routes/reservas.routes'); // Importamos tus rutas
 
 const app = express();
-
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // Middleware para leer datos de formulario 
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true }));
 
-// LÍNEA CORREGIDA: Apunta a client/src como la raíz estática
-app.use(express.static(path.join(__dirname, '..', 'client', 'src'))); 
+// Archivos estáticos (HTML/CSS del cliente)
+app.use(express.static(path.join(__dirname, '../client/src')));
 
-// --- RUTAS DE VISTAS (HTML) ---
+// --- RUTAS DE LA API ---
+app.use('/api', reservasRoutes); 
+// Esto significa que tu ruta será: http://localhost:3000/api/reservar
 
-// ... (Resto del código de rutas HTML/POST sin cambios)
-
-app.get('/', (req, res) => {
-    res.redirect('/login');
-});
+// --- VISTAS (HTML) ---
+app.get('/', (req, res) => res.redirect('/login'));
 
 app.get('/login', (req, res) => {
-    // RUTA HTML CORREGIDA
-    res.sendFile(path.join(__dirname, '..', 'client', 'src', 'views', 'login', 'login.html'));
+    res.sendFile(path.join(__dirname, '../client/src/views/login/login.html'));
 });
-
-// ... (Ruta POST /login) ...
 
 app.get('/inicio', (req, res) => {
-    // RUTA HTML CORREGIDA
-    res.sendFile(path.join(__dirname, '..', 'client', 'src', 'views', 'Principal', 'inicio.html'));
-});
-
-app.get('/opciones', (req, res) => {
-    // RUTA HTML CORREGIDA
-    res.sendFile(path.join(__dirname, '..', 'client', 'src', 'views', 'opciones.html'));
+    res.sendFile(path.join(__dirname, '../client/src/views/Principal/inicio.html'));
 });
 
 app.get('/formulario', (req, res) => {
-    // RUTA HTML CORREGIDA
-    res.sendFile(path.join(__dirname, '..', 'client', 'src', 'views', 'formulario', 'formulario.html'));
+    res.sendFile(path.join(__dirname, '../client/src/views/formulario/formulario.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(` Servidor corriendo en http://localhost:${PORT}`);
+// Iniciamos servidor SOLO si la DB conecta
+conectarDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+    });
 });
-

@@ -1,7 +1,7 @@
 /* --- GENERAL --- */
 body {
     margin: 0;
-    font-family: 'Georgia', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #FFFFFF;
 
     color: #1b2c4b;
@@ -12,14 +12,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-  background: linear-gradient(90deg, #0033cc, #00eaff);
+    padding: 25px 50px;
+    background: linear-gradient(90deg, #0033cc, #00eaff);
 
     color: white;
 }
 
 .navbar .logo {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
 }
 

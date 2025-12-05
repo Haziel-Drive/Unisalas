@@ -1,16 +1,24 @@
 body {
   margin: 0;
-  font-family: "Times New Roman", serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /* HEADER */
 header {
-  background: linear-gradient(to right, #1061EE, #13e0ff);
-  padding: 20px;
+  background: linear-gradient(90deg, #0033cc, #00eaff);
+  padding: 25px 50px;
 }
+
 header h1 {
   color: white;
   margin-left: 20px;
+  font-size: 30px;
+}
+
+.logo {
+  color: white;
+  font-size: 32px;
+    font-weight: bold;
 }
 
 /* ---------------- HERO ---------------- */

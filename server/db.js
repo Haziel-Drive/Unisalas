@@ -2,11 +2,13 @@
 const path = require('path')
 const sqlite = require('sqlite3')
 
+const dbPath = path.resolve(__dirname, './DataBase/Unisalas.db');
+
 const db = new sqlite.Database(
-    path.resolve(__dirname, './DataBase/Unisalas.db'),
+    dbPath,
     (error) => {
         if(error){
-            return console.error(error) 
+            return console.error('Error al abrir DB:', error.message) 
         }
         console.log('Conexión exitosa, creando tablas...');
 
@@ -74,66 +76,21 @@ CREATE TABLE IF NOT EXISTS Detalle_Reserva (
     FOREIGN KEY (ID_Alumno) REFERENCES Alumno(ID_Alumno)
 );
 
+-- INSERCIÓN DE DATOS DE PRUEBA (CRUCIAL PARA EL LOGIN)
 INSERT OR IGNORE INTO Grupo (ID_Grupo, Nombre_Grupo, Semestre) VALUES (1, '104', 'Primero');
+INSERT OR IGNORE INTO Alumno (ID_Alumno, ID_Grupo, Nombre_Alumno, Apellido_Alumno) VALUES (123, 1, 'Admin', 'User');
+INSERT OR IGNORE INTO Login (ID_Alumno, Contraseña_Hash) VALUES (123, 'admin'); -- Usuario de prueba 123/admin
 `;
 
-
-/*
-COMENTARIO HAZIEL: ESTE CODIGO SOLO FUE NECESARIO PARA GENERAR AQUI LA BSE DE DATOS
-YA NO ES NECESARIO, DECIDAN SI DEJARLO
-
-         aqui se ejecuta tabsla uno por uno
-        const statements = sql.split(';').filter(stmt => stmt.trim());
-        
-        function executeStatements(index) {
-            if (index >= statements.length) {
-                console.log('Todas las tablas creadas exitosamente');
-                return;
-            }
-            
-            const statement = statements[index].trim();
-            if (statement) {
-                db.run(statement, function(err) {
-                    if (err) {
-                        console.error('Error ejecutando:', statement);
-                        console.error('Error:', err.message);
-                    } else {
-                        console.log('Ejecutado:', statement.substring(0, 50) + '...');
-                    }
-                    executeStatements(index + 1);
-                });
+        // Ejecutar todo el script SQL en un solo comando
+        db.exec(sql, (err) => {
+            if (err) {
+                console.error('Error al ejecutar script SQL:', err.message);
             } else {
-                executeStatements(index + 1);
+                console.log('Tablas y datos de prueba creados/verificados exitosamente.');
             }
-        }
-        
-        executeStatements(0);
+        });
     }
 );
-*/
-
-});
 
 module.exports = db;
-
-/*
-db.all("SELECT * FROM Grupo", (err, rows) => {
-    if (err) throw err;
-    console.log("Grupos:", rows);
-});
-*/
-// TABLA VACIA NECESITA ALUMNOS
-db.all("SELECT * FROM Alumno", (err, rows) => {
-    if (err) throw err;
-    console.log("Alumnos:", rows);
-});
-/*
-db.all("SELECT * FROM Grupo", (err, rows) => {
-    if (err) {
-        console.log("Error en Grupo:", err.message);
-    } else {
-        console.log("Datos en Grupo:", rows);
-        console.log("Número de registros:", rows.length);
-    }
-});
-*/

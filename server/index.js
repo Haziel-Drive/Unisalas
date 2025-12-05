@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 //const db = require('./db');
+const verificarCredenciales = require('./auth.js');
 //import verificarCredenciales from './auth.js';
 
 const app = express();
@@ -29,6 +30,30 @@ app.get('/login', (req, res) => {
 });
 
 // ... (Ruta POST /login) ...
+app.post('/login', async (req, res) => {
+    const { usuario, contrasena } = req.body;
+    console.log(`Intento de login: Usuario ${usuario}`);
+
+    try {
+        const autenticado = await verificarCredenciales(usuario, contrasena);
+        
+        if (autenticado) {
+            console.log('Login Exitoso. Redirigiendo...');
+            res.redirect('/opciones'); 
+        } else {
+            console.log('Credenciales Incorrectas.');
+            res.status(401).send(`
+                <h1>Error de Autenticación</h1>
+                <p>Credenciales incorrectas.</p>
+                <a href="/login">Volver a intentar</a>
+            `);
+        }
+    } catch (error) {
+        console.error('Error en servidor:', error);
+        res.status(500).send('Error interno del servidor');
+    }
+});
+
 
 app.get('/inicio', (req, res) => {
     // RUTA HTML CORREGIDA

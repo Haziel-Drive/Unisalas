@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, '..', 'client', 'src')));
 // ... (Resto del código de rutas HTML/POST sin cambios)
 
 app.get('/', (req, res) => {
-    res.redirect('/login');
+    res.redirect('/inicio');
 });
 
 app.get('/login', (req, res) => {
@@ -37,7 +37,7 @@ app.get('/inicio', (req, res) => {
 
 app.get('/opciones', (req, res) => {
     // RUTA HTML CORREGIDA
-    res.sendFile(path.join(__dirname, '..', 'client', 'src', 'views', 'opciones.html'));
+    res.sendFile(path.join(__dirname, '..', 'client', 'src', 'views', 'Opciones', 'salas.html'));
 });
 
 app.get('/formulario', (req, res) => {

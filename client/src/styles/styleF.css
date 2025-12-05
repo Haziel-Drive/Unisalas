@@ -9,7 +9,7 @@
 
 body{
     /*Fuente*/
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 15px;
     /*Background*/
     background: url(/views/formulario/img/img8.jpg); 
@@ -48,15 +48,14 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
     
-   background: var(--color-principal);
+   background: linear-gradient(90deg, #0033cc, #00eaff);
     
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px;
+    padding:25px 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -105,7 +104,7 @@ body{
 
 /* Contenedor principal del formulario - Estilo de Tarjeta Redondeada */
 .contenedor-formulario {
-    margin-top: 30px;
+    margin-top: 80px;
     width: 90%;
     max-width: 500px;
     background-color: white;
